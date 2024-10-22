@@ -33,8 +33,7 @@ jobs:
       - run: docker build -t $MODULE_FULLNAME $MODULE_NAME
 
       - run: |
-          docker tag $MODULE_FULLNAME:$TAG \
-          $REGISTRY_URL/$MODULE_FULLNAME:$TAG
+          docker tag $MODULE_FULLNAME:$TAG $REGISTRY_URL/$MODULE_FULLNAME:$TAG
 
       - run: |
           aws ecr get-login-password --region $AWS_REGION | \
